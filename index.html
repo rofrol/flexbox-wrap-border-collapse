@@ -98,6 +98,25 @@
         transform:rotate(45deg);
         box-shadow: inset -5px -5px 0 -4px rgb(3, 61, 93);
     }
+
+    .Tooltip {
+        position: relative;
+        width: 220px;
+        height: 120px;
+        padding: 20px;
+        font-family: "Comic Sans MS", cursive;
+        font-weight: bold;
+        font-size: 14px;
+        color: rgba(21, 139, 204, 1);
+        text-align: justify;
+        box-sizing: border-box;
+    }
+    #bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
 </style>
 <div class="frame-arrow-down">
     <div>one</div>
@@ -111,3 +130,17 @@
 
 <br>
 <div class="frame2"></div>
+
+<br>
+<div class="Tooltip">
+    <div>You must read through the RaffleBananza Cookie Policy before agreeing to accept.</div>
+    <svg id="bg" width="220" height="130" viewBox="0 0 220 140" preserveAspectRatio="none">
+        <filter id="f" x="0%" y="0%" width="100%" height="100%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
+        </filter>
+        <path d="M0,7 q0,-7 7,-7 h206 q7,0 7,7 v106 q0,7 -7,7 h-88 l-15,15 l-15,-15 h-88 q-7,0 -7,-7z" fill="#1597E3" />
+        <path filter="url(#f)" d="M2,9.5 q0,-7 7,-7 h202 q7,0 7,7 v101 q0,7 -7,7 h-86 l-15,15 l-15,-15 h-86 q-7,0 -7,-7z" fill="#dbf3ff" />
+    </svg>
+</div>
+
+<a href="http://tympanus.net/Development/TooltipStylesInspiration/flip.html">more from tympanus</a>
