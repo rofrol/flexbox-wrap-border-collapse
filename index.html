@@ -1,0 +1,80 @@
+<!doctype html>
+<meta charset="UTF-8">
+<title>flexbox-wrap-border-collapse</title>
+<style>
+
+    /* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+    /* apply a natural box layout model to all elements, but allowing components to change */
+
+    #container, #container > * {
+        box-sizing: border-box;
+    }
+
+    #container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 600px;
+        position: relative;
+    }
+    #container > * {
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        background-color: #a3a3a3;
+        border: 1px solid #777;
+        margin-top: -1px;
+        margin-left: -1px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+    #container > div:not(.frame):hover {
+        background-color: #b6b6b6;
+    }
+    #container > .frame {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        background-color: blue;
+        border: none;
+    }
+    #container > .frame-left {
+        top: -1px;
+        left: -1px;
+        width: 1px;
+        height: calc(100% + 1px);
+    }
+    #container > .frame-right {
+        top: -1px;
+        right: 3px;
+        width: 1px;
+        height: calc(100% + 1px);
+    }
+    #container > .frame-top {
+        top: -1px;
+        left: -1px;
+        width: calc(100% - 2px);
+        height: 1px;
+    }
+    #container > .frame-bottom {
+        bottom: 0;
+        left: -1px;
+        width: calc(100% - 2px);
+        height: 1px;
+    }
+
+</style>
+<div id="container">
+    <div>one</div>
+    <div>two</div>
+    <div>three</div>
+    <div>four</div>
+    <div>five</div>
+    <div>six</div>
+    <div>seven</div>
+    <div class="frame frame-left"></div>
+    <div class="frame frame-right"></div>
+    <div class="frame frame-top"></div>
+    <div class="frame frame-bottom"></div>
+</div>
