@@ -68,6 +68,25 @@
         border-width: 9px;
         margin-left: -9px;
     }
+
+    /*http://stackoverflow.com/questions/28178202/css-only-tooltip-with-arrow-and-border*/
+    .frame2{
+        position:relative;
+        width:200px;
+        height:57px;
+        padding:20px;
+        background: rgb(247, 247, 246);
+        box-shadow: inset 0 0 0 1px rgb(3, 61, 93);
+    }
+    .frame2:after{
+        content:'';
+        position:absolute;
+        left:110px; bottom:-10px;
+        width:20px; height:20px;
+        background:inherit;
+        transform:rotate(45deg);
+        box-shadow: inset -5px -5px 0 -4px rgb(3, 61, 93);
+    }
 </style>
 <div class="frame-arrow-down">
     <div>one</div>
@@ -78,3 +97,6 @@
     <div>six</div>
     <div>seven</div>
 </div>
+
+<br>
+<div class="frame2"></div>
