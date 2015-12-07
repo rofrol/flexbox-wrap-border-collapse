@@ -13,7 +13,7 @@
     #container {
         display: flex;
         flex-wrap: wrap;
-        width: 283px;
+        width: calc(94px * 3 + 1px);
         position: relative;
         padding-top: 1px;
         padding-left: 1px;
@@ -33,7 +33,7 @@
     #container > :hover {
         background-color: white;
     }
-    #container > :after {
+    #container :last-child:after {
         content: '';
         display: block;
         position: absolute;
@@ -45,6 +45,30 @@
         width: calc(100% - 2px);
         height: calc(100% - 2px);
         border: 1px solid rgb(3, 61, 93);
+    }
+
+    #container:after, #container:before {
+        top: calc(100% - 1px);
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    #container:after {
+        border-color: rgba(136, 183, 213, 0);
+        border-top-color: white;
+        border-width: 8px;
+        margin-left: -8px;
+    }
+    #container:before {
+        border-color: rgba(194, 225, 245, 0);
+        border-top-color: rgb(3, 61, 93);
+        border-width: 9px;
+        margin-left: -9px;
     }
 </style>
 <div id="container">
