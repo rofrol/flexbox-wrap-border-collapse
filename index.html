@@ -15,53 +15,56 @@
         flex-wrap: wrap;
         width: 282px;
         position: relative;
+        padding-top: 1px;
     }
-    #container > * {
+    #container > :not(.frame) {
         width: 94px;
         height: 88px;
         padding: 20px;
-        background-color: white;
-        border: 1px solid #aaa;
-        margin-top: -1px;
-        margin-left: -1px;
+        background-color: rgb(247, 247, 246);
+        border-top: 1px solid white;
         display: flex;
         justify-content: center;
         align-content: center;
         align-items: center;
+        box-shadow: inset -1px -1px 0 0 #ccc;
     }
-    #container > div:not(.frame):hover {
-        background-color: #ddd;
+    #container > :not(.frame):hover {
+        background-color: rgb(253, 253, 252);
     }
     #container > .frame {
         position: absolute;
         padding: 0;
         margin: 0;
         background-color: black;
-        border: none;
     }
     #container > .frame-left {
-        top: -1px;
-        left: -1px;
-        width: 1px;
-        height: calc(100% + 1px);
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        border-left: 1px solid black;
     }
     #container > .frame-right {
-        top: -1px;
-        right: 3px;
-        width: 1px;
-        height: calc(100% + 1px);
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 100%;
+        border-left: 1px solid black;
     }
     #container > .frame-top {
-        top: -1px;
-        left: -1px;
-        width: calc(100% - 2px);
-        height: 1px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0px;
+        border-top: 1px solid black;
     }
     #container > .frame-bottom {
         bottom: 0;
-        left: -1px;
-        width: calc(100% - 2px);
-        height: 1px;
+        left: 0;
+        width: 100%;
+        height: 0;
+        border-top: 1px solid black;
     }
 
 </style>
