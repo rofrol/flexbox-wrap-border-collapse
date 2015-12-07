@@ -6,11 +6,11 @@
     /* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
     /* apply a natural box layout model to all elements, but allowing components to change */
 
-    #container, #container > * {
+    .frame-arrow-down, .frame-arrow-down > * {
         box-sizing: border-box;
     }
 
-    #container {
+    .frame-arrow-down {
         display: flex;
         flex-wrap: wrap;
         width: calc(94px * 3 + 1px);
@@ -18,7 +18,7 @@
         padding-top: 1px;
         padding-left: 1px;
     }
-    #container > * {
+    .frame-arrow-down > * {
         width: 94px;
         height: 88px;
         padding: 20px;
@@ -30,10 +30,10 @@
         align-items: center;
         box-shadow: inset -1px -1px 0 0 #ccc, inset 1px 0 0 0 white;
     }
-    #container > :hover {
+    .frame-arrow-down > :hover {
         background-color: white;
     }
-    #container :last-child:after {
+    .frame-arrow-down :last-child:after {
         content: '';
         display: block;
         position: absolute;
@@ -47,7 +47,7 @@
         border: 1px solid rgb(3, 61, 93);
     }
 
-    #container:after, #container:before {
+    .frame-arrow-down:after, .frame-arrow-down:before {
         top: calc(100% - 1px);
         left: 50%;
         border: solid transparent;
@@ -58,20 +58,20 @@
         pointer-events: none;
     }
 
-    #container:after {
+    .frame-arrow-down:after {
         border-color: rgba(136, 183, 213, 0);
         border-top-color: white;
         border-width: 8px;
         margin-left: -8px;
     }
-    #container:before {
+    .frame-arrow-down:before {
         border-color: rgba(194, 225, 245, 0);
         border-top-color: rgb(3, 61, 93);
         border-width: 9px;
         margin-left: -9px;
     }
 </style>
-<div id="container">
+<div class="frame-arrow-down">
     <div>one</div>
     <div>two</div>
     <div>three</div>
