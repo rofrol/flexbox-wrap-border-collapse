@@ -69,6 +69,17 @@
         margin-left: -9px;
     }
 
+    /*worse*/
+    /*.frame-arrow-down:after{*/
+        /*content:'';*/
+        /*position:absolute;*/
+        /*left:calc(50% - 5px); bottom:-5px;*/
+        /*width:10px; height:10px;*/
+        /*background:inherit;*/
+        /*transform:rotate(45deg);*/
+        /*box-shadow: inset -5px -5px 0 -4px rgb(3, 61, 93);*/
+    /*}*/
+
     /*http://stackoverflow.com/questions/28178202/css-only-tooltip-with-arrow-and-border*/
     .frame2{
         position:relative;
@@ -81,7 +92,7 @@
     .frame2:after{
         content:'';
         position:absolute;
-        left:110px; bottom:-10px;
+        left:calc(50% - 10px); bottom:-10px;
         width:20px; height:20px;
         background:inherit;
         transform:rotate(45deg);
