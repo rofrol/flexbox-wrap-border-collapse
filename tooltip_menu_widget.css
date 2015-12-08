@@ -1,11 +1,11 @@
 /* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
 /* apply a natural box layout model to all elements, but allowing components to change */
 
-.frame, .frame > * {
+.tooltip_menu_widget, .tooltip_menu_widget > * {
     box-sizing: border-box;
 }
 
-.frame {
+.tooltip_menu_widget {
     display: flex;
     flex-wrap: wrap;
     max-width: calc(94px * 3 + 1px);
@@ -16,7 +16,7 @@
     background-color: rgb(247, 247, 246);
     margin: 10px;
 }
-.frame > * {
+.tooltip_menu_widget > * {
     width: 94px;
     height: 88px;
     padding: 52px 5px 5px 5px;
@@ -27,10 +27,10 @@
     text-align: center;
     cursor: pointer;
 }
-.frame > :hover {
+.tooltip_menu_widget > :hover {
     background-color: white;
 }
-.frame:after {
+.tooltip_menu_widget:after {
     content: '';
     display: block;
     position: absolute;
@@ -46,7 +46,7 @@
 
 /*better when zooming, visible gap between border and arrow*/
 /*http://stackoverflow.com/questions/28178202/css-only-tooltip-with-arrow-and-border*/
-.frame-down:before{
+.tooltip_menu_widget_down:before{
     content:'';
     position:absolute;
     left:calc(50% - 5px); bottom:-6px;
