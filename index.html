@@ -39,7 +39,7 @@
     .frame > :hover {
         background-color: white;
     }
-    .arrow-down2:before {
+    .arrow-down2:after {
         content: '';
         display: block;
         position: absolute;
@@ -55,7 +55,7 @@
 
     /*better when zooming, visible gap between border and arrow*/
     /*http://stackoverflow.com/questions/28178202/css-only-tooltip-with-arrow-and-border*/
-    .arrow-down2:after{
+    .arrow-down2:before{
         content:'';
         position:absolute;
         left:calc(50% - 5px); bottom:-6px;
@@ -63,6 +63,7 @@
         background:inherit;
         transform:rotate(45deg);
         box-shadow: inset -5px -5px 0 -4px rgb(3, 61, 93);
+        z-index: 1;
     }
 
     .frame > * > .icon {
@@ -94,8 +95,8 @@
 </style>
 <div class="flex">
     <div class="frame arrow-down2">
-        <div>one<div class="icon icon_boat"></div></div>
-        <div>two<div class="icon icon_car"></div></div>
+        <div>boat<div class="icon icon_boat"></div></div>
+        <div>car<div class="icon icon_car"></div></div>
         <div>three</div>
         <div>four</div>
         <div>five</div>
