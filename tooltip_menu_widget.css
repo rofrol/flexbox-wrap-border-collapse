@@ -11,8 +11,7 @@
     max-width: calc(94px * 3 + 1px);
     min-width: calc(94px * 3 + 1px);
     position: relative;
-    padding-top: 1px;
-    padding-left: 1px;
+    padding: 1px 0 0 1px;
     background-color: rgb(247, 247, 246);
     margin: 10px;
 }
@@ -55,4 +54,9 @@
     transform:rotate(45deg);
     box-shadow: inset -5px -5px 0 -4px rgb(3, 61, 93);
     z-index: 1;
+}
+
+.tooltip_menu_widget > a {
+    text-decoration: none;
+    color: black;
 }
