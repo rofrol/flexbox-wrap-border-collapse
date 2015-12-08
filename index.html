@@ -6,6 +6,11 @@
         font-family: sans-serif;
     }
 
+
+    .flex {
+        display: flex;
+    }
+
     /* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
     /* apply a natural box layout model to all elements, but allowing components to change */
 
@@ -27,14 +32,12 @@
     .frame > * {
         width: 94px;
         height: 88px;
-        padding-top: 55px;
+        padding: 52px 5px 5px 5px;
         border-top: 1px solid white;
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        align-items: center;
         box-shadow: inset -1px -1px 0 0 #ccc, inset 1px 0 0 0 white;
         position: relative;
+        font-size: 12px;
+        text-align: center;
     }
     .frame > :hover {
         background-color: white;
@@ -66,40 +69,64 @@
         z-index: 1;
     }
 
-    .frame > .icon:before {
+    /* sprite icon */
+
+    .icon:before {
         content: '';
         display: block;
         position: absolute;
-        top: 5px;
+        top: 3px;
         left: calc(50% - 60px / 2);
         width: 60px;
         height: 50px;
         pointer-events: none;
+        background-image: url('sprite.png');
     }
 
-    .frame > .icon.icon_boat:before {
-        background-image: url("pgf-ui-sprite-circles-icons.png");
+    .icon.icon_account_ballance:before {
         background-position: 0 0;
-        pointer-events: none;
     }
 
-    .frame > .icon.icon_car:before {
-        background-image: url("pgf-ui-sprite-circles-icons.png");
-        background-position: 0 -400px;
+    .icon.icon_motorcycle:before {
+        background-position: 0 -50px;
     }
 
-    .flex {
-        display: flex;
+    .icon.icon_time:before {
+        background-position: 0 -100px;
+    }
+
+    .icon.icon_rowing:before {
+        background-position: 0 -150px;
+    }
+
+    .icon.icon_sun:before {
+        background-position: 0 -200px;
+    }
+
+    .icon.icon_bike:before {
+        background-position: 0 -250px;
+    }
+
+    .icon.icon_group:before {
+        background-position: 0 -300px;
+    }
+    /* image icon */
+
+    .icon_account_public {
+        background-image: url('ic_group_black_24dp_2x.png');
+        background-repeat: no-repeat;
+        background-position: 50% calc(50% - 15px);
     }
 </style>
 <div class="flex">
     <div class="frame frame-down">
-        <div class="icon icon_boat">boat</div>
-        <div class="icon icon_car">car</div>
-        <div>three</div>
-        <div>four</div>
-        <div>five</div>
-        <div>six</div>
-        <div>seven</div>
+        <div class="icon icon_account_ballance">account ballance</div>
+        <div class="icon icon_motorcycle">motorcycle</div>
+        <div class="icon icon_time">time</div>
+        <div class="icon icon_rowing">rowing</div>
+        <div class="icon icon_sun">sun</div>
+        <div class="icon icon_bike">bike</div>
+        <div class="icon icon_group">group of people</div>
+        <div class="icon_account_public">group of people</div>
     </div>
 </div>
