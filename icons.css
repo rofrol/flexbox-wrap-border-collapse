@@ -1,0 +1,48 @@
+/* sprite icon */
+
+.icon:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: calc(50% - 60px / 2);
+    width: 60px;
+    height: 50px;
+    pointer-events: none;
+    background-image: url('sprite.png');
+}
+
+.icon.icon_account_ballance:before {
+    background-position: 0 0;
+}
+
+.icon.icon_motorcycle:before {
+    background-position: 0 -50px;
+}
+
+.icon.icon_time:before {
+    background-position: 0 -100px;
+}
+
+.icon.icon_rowing:before {
+    background-position: 0 -150px;
+}
+
+.icon.icon_sun:before {
+    background-position: 0 -200px;
+}
+
+.icon.icon_bike:before {
+    background-position: 0 -250px;
+}
+
+.icon.icon_group:before {
+    background-position: 0 -300px;
+}
+/* image icon */
+
+.icon_account_public {
+    background-image: url('ic_group_black_24dp_2x.png');
+    background-repeat: no-repeat;
+    background-position: 50% calc(50% - 15px);
+}
