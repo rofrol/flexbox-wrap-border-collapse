@@ -22,7 +22,7 @@
     padding: 52px 5px 5px 5px;
     border-top: 1px solid white;
     box-shadow: inset -1px -1px 0 0 #ccc, inset 1px 0 0 0 white;
-    position: relative;
+    position: relative; /* needed when using sprite icon */
     font-size: 12px;
     text-align: center;
     cursor: pointer;
