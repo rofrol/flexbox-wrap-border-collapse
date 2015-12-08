@@ -39,7 +39,7 @@
     .frame > :hover {
         background-color: white;
     }
-    .arrow-down2:after {
+    .frame:after {
         content: '';
         display: block;
         position: absolute;
@@ -55,7 +55,7 @@
 
     /*better when zooming, visible gap between border and arrow*/
     /*http://stackoverflow.com/questions/28178202/css-only-tooltip-with-arrow-and-border*/
-    .arrow-down2:before{
+    .frame-down:before{
         content:'';
         position:absolute;
         left:calc(50% - 5px); bottom:-6px;
@@ -66,25 +66,24 @@
         z-index: 1;
     }
 
-    .frame > * > .icon {
-        /*content: '';*/
+    .frame > .icon:before {
+        content: '';
         display: block;
         position: absolute;
         top: 5px;
         left: calc(50% - 60px / 2);
-        border: 1px solid green;
         width: 60px;
         height: 50px;
         pointer-events: none;
     }
 
-    .frame > * > .icon_boat {
+    .frame > .icon.icon_boat:before {
         background-image: url("pgf-ui-sprite-circles-icons.png");
         background-position: 0 0;
         pointer-events: none;
     }
 
-    .frame > * > .icon_car {
+    .frame > .icon.icon_car:before {
         background-image: url("pgf-ui-sprite-circles-icons.png");
         background-position: 0 -400px;
     }
@@ -94,9 +93,9 @@
     }
 </style>
 <div class="flex">
-    <div class="frame arrow-down2">
-        <div>boat<div class="icon icon_boat"></div></div>
-        <div>car<div class="icon icon_car"></div></div>
+    <div class="frame frame-down">
+        <div class="icon icon_boat">boat</div>
+        <div class="icon icon_car">car</div>
         <div>three</div>
         <div>four</div>
         <div>five</div>
