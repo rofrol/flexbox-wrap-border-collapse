@@ -2,38 +2,44 @@
 <meta charset="UTF-8">
 <title>flexbox-wrap-border-collapse</title>
 <style>
+    body {
+        font-family: sans-serif;
+    }
 
     /* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
     /* apply a natural box layout model to all elements, but allowing components to change */
 
-    .frame-arrow-down, .frame-arrow-down > * {
+    .frame, .frame > * {
         box-sizing: border-box;
     }
 
-    .frame-arrow-down {
+    .frame {
         display: flex;
         flex-wrap: wrap;
-        width: calc(94px * 3 + 1px);
+        max-width: calc(94px * 3 + 1px);
+        min-width: calc(94px * 3 + 1px);
         position: relative;
         padding-top: 1px;
         padding-left: 1px;
         background-color: rgb(247, 247, 246);
+        margin: 10px;
     }
-    .frame-arrow-down > * {
+    .frame > * {
         width: 94px;
         height: 88px;
-        padding: 20px;
+        padding-top: 55px;
         border-top: 1px solid white;
         display: flex;
         justify-content: center;
         align-content: center;
         align-items: center;
         box-shadow: inset -1px -1px 0 0 #ccc, inset 1px 0 0 0 white;
+        position: relative;
     }
-    .frame-arrow-down > :hover {
+    .frame > :hover {
         background-color: white;
     }
-    .frame-arrow-down :last-child:after {
+    .arrow-down2:before {
         content: '';
         display: block;
         position: absolute;
@@ -47,100 +53,53 @@
         border: 1px solid rgb(3, 61, 93);
     }
 
-    .frame-arrow-down:after, .frame-arrow-down:before {
-        top: calc(100% - 1px);
-        left: 50%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-    }
-
-    .frame-arrow-down:after {
-        border-top-color: rgb(247, 247, 246);
-        border-width: 8px;
-        margin-left: -8px;
-    }
-    .frame-arrow-down:before {
-        border-top-color: rgb(3, 61, 93);
-        border-width: 9px;
-        margin-left: -9px;
-    }
-
-    /*worse*/
-    /*.frame-arrow-down:after{*/
-        /*content:'';*/
-        /*position:absolute;*/
-        /*left:calc(50% - 5px); bottom:-5px;*/
-        /*width:10px; height:10px;*/
-        /*background:inherit;*/
-        /*transform:rotate(45deg);*/
-        /*box-shadow: inset -5px -5px 0 -4px rgb(3, 61, 93);*/
-    /*}*/
-
+    /*better when zooming, visible gap between border and arrow*/
     /*http://stackoverflow.com/questions/28178202/css-only-tooltip-with-arrow-and-border*/
-    .frame2{
-        position:relative;
-        width:200px;
-        height:57px;
-        padding:20px;
-        background: rgb(247, 247, 246);
-        box-shadow: inset 0 0 0 1px rgb(3, 61, 93);
-    }
-    .frame2:after{
+    .arrow-down2:after{
         content:'';
         position:absolute;
-        left:calc(50% - 10px); bottom:-10px;
-        width:20px; height:20px;
+        left:calc(50% - 5px); bottom:-6px;
+        width:12px; height:12px;
         background:inherit;
         transform:rotate(45deg);
         box-shadow: inset -5px -5px 0 -4px rgb(3, 61, 93);
     }
 
-    .Tooltip {
-        position: relative;
-        width: 220px;
-        height: 120px;
-        padding: 20px;
-        font-family: "Comic Sans MS", cursive;
-        font-weight: bold;
-        font-size: 14px;
-        color: rgba(21, 139, 204, 1);
-        text-align: justify;
-        box-sizing: border-box;
-    }
-    #bg {
+    .frame > * > .icon {
+        /*content: '';*/
+        display: block;
         position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
+        top: 5px;
+        left: calc(50% - 60px / 2);
+        border: 1px solid green;
+        width: 60px;
+        height: 50px;
+        pointer-events: none;
+    }
+
+    .frame > * > .icon_boat {
+        background-image: url("pgf-ui-sprite-circles-icons.png");
+        background-position: 0 0;
+        pointer-events: none;
+    }
+
+    .frame > * > .icon_car {
+        background-image: url("pgf-ui-sprite-circles-icons.png");
+        background-position: 0 -400px;
+    }
+
+    .flex {
+        display: flex;
     }
 </style>
-<div class="frame-arrow-down">
-    <div>one</div>
-    <div>two</div>
-    <div>three</div>
-    <div>four</div>
-    <div>five</div>
-    <div>six</div>
-    <div>seven</div>
+<div class="flex">
+    <div class="frame arrow-down2">
+        <div>one<div class="icon icon_boat"></div></div>
+        <div>two<div class="icon icon_car"></div></div>
+        <div>three</div>
+        <div>four</div>
+        <div>five</div>
+        <div>six</div>
+        <div>seven</div>
+    </div>
 </div>
-
-<br>
-<div class="frame2"></div>
-
-<br>
-<div class="Tooltip">
-    <div>You must read through the RaffleBananza Cookie Policy before agreeing to accept.</div>
-    <svg id="bg" width="220" height="130" viewBox="0 0 220 140" preserveAspectRatio="none">
-        <filter id="f" x="0%" y="0%" width="100%" height="100%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
-        </filter>
-        <path d="M0,7 q0,-7 7,-7 h206 q7,0 7,7 v106 q0,7 -7,7 h-88 l-15,15 l-15,-15 h-88 q-7,0 -7,-7z" fill="#1597E3" />
-        <path filter="url(#f)" d="M2,9.5 q0,-7 7,-7 h202 q7,0 7,7 v101 q0,7 -7,7 h-86 l-15,15 l-15,-15 h-86 q-7,0 -7,-7z" fill="#dbf3ff" />
-    </svg>
-</div>
-
-<a href="http://tympanus.net/Development/TooltipStylesInspiration/flip.html">more from tympanus</a>
