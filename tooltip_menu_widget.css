@@ -9,7 +9,9 @@
     padding: 1px 0 0 1px;
     background-color: rgb(247, 247, 246);
     margin: 0;
-    bottom: calc(100% - 10px);
+    /* calc() not supported for transition http://caniuse.com/#feat=css-transitions */
+    /*bottom: calc(100% - 10px);*/
+    bottom: 100%;
     left: calc((100% - (94px * 3 + 1px))/2);
     transition: bottom 0.5s, opacity 0.5s;
 }
