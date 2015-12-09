@@ -1,19 +1,12 @@
-/* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
-/* apply a natural box layout model to all elements, but allowing components to change */
-
-.tooltip_menu_widget, .tooltip_menu_widget > * {
-    box-sizing: border-box;
-}
-
 .tooltip_menu_widget {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     max-width: calc(94px * 3 + 1px);
     min-width: calc(94px * 3 + 1px);
-    position: relative;
+    position: absolute;
     padding: 1px 0 0 1px;
     background-color: rgb(247, 247, 246);
-    margin: 10px;
+    margin: 0;
 }
 .tooltip_menu_widget > * {
     width: 94px;
@@ -38,8 +31,8 @@
     padding: 0;
     margin: 0;
     pointer-events: none;
-    width: calc(100% - 2px);
-    height: calc(100% - 2px);
+    width: 100%;
+    height: 100%;
     border: 1px solid rgb(3, 61, 93);
 }
 

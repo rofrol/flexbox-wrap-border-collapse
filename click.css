@@ -1,0 +1,47 @@
+/*
+http://tympanus.net/codrops/2012/12/17/css-click-events/
+http://stackoverflow.com/questions/23423841/click-to-show-css-tooltip#comment35897440_23423841
+https://css-tricks.com/the-checkbox-hack/
+http://cbracco.me/a-simple-css-tooltip/
+http://stackoverflow.com/questions/21233250/how-to-positioning-the-tooltip-above-cursor
+*/
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #08C;
+  padding: 5px;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 2px;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+
+/* reconsider https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/ */
+.button > input[type=checkbox] {
+  display: none;
+}
+
+.button > input[type=checkbox]:checked ~ .to-be-changed {
+  display: flex;
+  bottom: calc(100% + 15px);
+  left: calc((100% - (94px * 3 + 1px))/2);
+}
+
+/* http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting */
+/* http://stackoverflow.com/questions/3779534/how-to-disable-text-selection-with-css-or-js */
+/* http://stackoverflow.com/questions/17615757/prevent-text-highlight-when-click */
+/* https://css-tricks.com/almanac/properties/u/user-select/ */
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
