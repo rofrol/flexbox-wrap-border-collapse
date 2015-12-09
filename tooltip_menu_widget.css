@@ -1,5 +1,7 @@
 .tooltip_menu_widget {
-    display: none;
+    display: flex;
+    visibility: hidden;
+    opacity: 0.2;
     flex-wrap: wrap;
     max-width: calc(94px * 3 + 1px);
     min-width: calc(94px * 3 + 1px);
@@ -7,6 +9,9 @@
     padding: 1px 0 0 1px;
     background-color: rgb(247, 247, 246);
     margin: 0;
+    bottom: calc(100% - 10px);
+    left: calc((100% - (94px * 3 + 1px))/2);
+    transition: bottom 0.5s, opacity 0.5s;
 }
 .tooltip_menu_widget > * {
     width: 94px;

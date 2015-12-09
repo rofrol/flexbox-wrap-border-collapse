@@ -28,9 +28,9 @@ http://stackoverflow.com/questions/21233250/how-to-positioning-the-tooltip-above
 }
 
 .button > input[type=checkbox]:checked ~ .to-be-changed {
-  display: flex;
+  visibility: visible;
   bottom: calc(100% + 15px);
-  left: calc((100% - (94px * 3 + 1px))/2);
+  opacity: 1;
 }
 
 /* http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting */
@@ -40,7 +40,6 @@ http://stackoverflow.com/questions/21233250/how-to-positioning-the-tooltip-above
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
