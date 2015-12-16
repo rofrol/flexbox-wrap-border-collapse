@@ -1,0 +1,46 @@
+<!doctype html>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>Detect DOM Node Insertions with JavaScript and CSS Animations Example</title>
+<!--http://developer.streak.com/2012/11/how-to-detect-dom-changes-in-css.html-->
+<!--http://stackoverflow.com/questions/13666758/is-there-any-non-polling-way-to-detect-when-a-dom-elements-size-or-position-hav-->
+<style>
+	/* set up the keyframes */
+	@keyframes nodeInserted {
+		from {
+			opacity: 0.99;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	#parentElement > li {
+		padding: 10px;
+		background: #FF6A6A;
+		margin-bottom: 10px;
+		animation-duration: 0.001s;
+		animation-name: nodeInserted;
+	}
+
+</style>
+<ul id="parentElement"></ul>
+<script>
+	window.addEventListener("load", function () {
+		var count = 0,
+			insertListener = function (event) {
+				console.warn("Another node has been inserted! ", event);
+				if (event.animationName == "nodeInserted") {
+					event.target.textContent = "Element " + count++ + " has been injected!";
+				}
+			};
+
+		document.addEventListener("animationstart", insertListener, false);
+
+		// Insert a new element
+		setInterval(function () {
+			document.getElementById("parentElement").appendChild(document.createElement("li"))
+		}, 2000);
+
+	});
+</script>
