@@ -21,28 +21,3 @@ http://stackoverflow.com/questions/21233250/how-to-positioning-the-tooltip-above
   height: 200px;
   cursor: pointer;
 }
-
-/* reconsider https://css-tricks.com/places-its-tempting-to-use-display-none-but-dont/ */
-.button > input[type=checkbox] {
-  display: none;
-}
-
-.button > input[type=checkbox]:checked ~ * {
-  visibility: visible;
-  /* calc() not supported for transition http://caniuse.com/#feat=css-transitions */
-  /*bottom: calc(100% + 15px);*/
-  bottom: 215px;
-  opacity: 1;
-}
-
-/* http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting */
-/* http://stackoverflow.com/questions/3779534/how-to-disable-text-selection-with-css-or-js */
-/* http://stackoverflow.com/questions/17615757/prevent-text-highlight-when-click */
-/* https://css-tricks.com/almanac/properties/u/user-select/ */
-.noselect {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}

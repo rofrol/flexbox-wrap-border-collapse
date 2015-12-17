@@ -1,7 +1,12 @@
-.tooltip_menu_widget {
+.show_menu {
     display: flex;
-    visibility: hidden;
+    opacity: 1;
+}
+.hide_menu {
+    display: none;
     opacity: 0.2;
+}
+.tooltip_menu_widget {
     flex-wrap: wrap;
     max-width: calc(94px * 3 + 1px);
     min-width: calc(94px * 3 + 1px);
@@ -11,9 +16,7 @@
     margin: 0;
     /* calc() not supported for transition http://caniuse.com/#feat=css-transitions */
     /*bottom: calc(100% - 10px);*/
-    bottom: 100%;
-    left: calc((100% - (94px * 3 + 1px))/2);
-    transition: bottom 0.5s, opacity 0.5s;
+    transition: top 0.5s, opacity 0.5s;
 }
 .tooltip_menu_widget > * {
     width: 94px;

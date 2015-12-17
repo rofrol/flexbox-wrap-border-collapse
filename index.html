@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+<meta http-equiv="x-ua-compatible" content="ie=edge"/>
 <title>flexbox-wrap-border-collapse</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="tooltip_menu_widget.css">
@@ -13,19 +13,7 @@
     <div class="handler"></div>
     <div class="down">
 
-        <label class="button noselect">Tooltip menu
-            <input type="checkbox">
-            <nav class="tooltip_menu_widget tooltip_menu_widget_down">
-                <a class="icon icon_account_ballance">account ballance</a>
-                <a class="icon icon_motorcycle">motorcycle</a>
-                <a class="icon icon_time">time</a>
-                <a class="icon icon_rowing">rowing</a>
-                <a class="icon icon_sun">sun</a>
-                <a class="icon icon_bike">bike</a>
-                <a class="icon icon_group">group of people</a>
-                <a class="icon_account_public">group of people</a>
-            </nav>
-        </label>
+        <button class="button">Tooltip menu</button>
         <div style="height: 100px">
             some content<br>more content<br><br><br><br><br>one one oneeo neone eon
             some content<br>more content<br><br><br><br><br>one one oneeo neone eon
@@ -35,4 +23,33 @@
         </div>
     </div>
 </div>
+<nav class="tooltip_menu_widget tooltip_menu_widget_down hide_menu">
+	<a class="icon icon_account_ballance">account ballance</a>
+	<a class="icon icon_motorcycle">motorcycle</a>
+	<a class="icon icon_time">time</a>
+	<a class="icon icon_rowing">rowing</a>
+	<a class="icon icon_sun">sun</a>
+	<a class="icon icon_bike">bike</a>
+	<a class="icon icon_group">group of people</a>
+	<a class="icon_account_public">group of people</a>
+</nav>
 <script src="resizable.js"></script>
+<script>
+	var button = document.querySelector('.button');
+	button.addEventListener('click', function(){
+		var menu = document.querySelector('.tooltip_menu_widget');
+		if(!menu.classList.contains('show_menu')) {
+			menu.classList.remove('hide_menu');
+			menu.classList.add('show_menu');
+			var menuRect = menu.getBoundingClientRect();
+			var buttonRect = button.getBoundingClientRect();
+			console.log(window.scrollX);
+			console.log(buttonRect.left);
+			menu.style.left = buttonRect.left - (menuRect.width - buttonRect.width) / 2 + 'px';
+			menu.style.top = buttonRect.top - menuRect.height - 9 + 'px';
+		} else {
+			menu.classList.add('hide_menu');
+			menu.classList.remove('show_menu');
+		}
+	});
+</script>
