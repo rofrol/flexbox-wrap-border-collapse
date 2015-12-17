@@ -1,12 +1,7 @@
-.show_menu {
-    display: flex;
-    opacity: 1;
-}
-.hide_menu {
-    display: none;
-    opacity: 0.2;
-}
+
 .tooltip_menu_widget {
+    opacity: 1;
+    display: flex;
     flex-wrap: wrap;
     max-width: calc(94px * 3 + 1px);
     min-width: calc(94px * 3 + 1px);
@@ -14,9 +9,12 @@
     padding: 1px 0 0 1px;
     background-color: rgb(247, 247, 246);
     margin: 0;
+    /* if there is no left and top specified, it wrongly calcluates */
+    left: 0;
+    top: 0;
     /* calc() not supported for transition http://caniuse.com/#feat=css-transitions */
     /*bottom: calc(100% - 10px);*/
-    transition: top 0.5s, opacity 0.5s;
+    transition: visibility 0s, top 0.2s, opacity 0.2s;
 }
 .tooltip_menu_widget > * {
     width: 94px;
@@ -29,9 +27,7 @@
     text-align: center;
     cursor: pointer;
 }
-.tooltip_menu_widget > :hover {
-    background-color: white;
-}
+
 .tooltip_menu_widget:after {
     content: '';
     display: block;
@@ -45,6 +41,18 @@
     height: 100%;
     border: 1px solid rgb(3, 61, 93);
 }
+.tooltip_menu_widget > :hover {
+    background-color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.visuallyhidden {
+    opacity: 0;
+}
+
 
 /*better when zooming, visible gap between border and arrow*/
 /*http://stackoverflow.com/questions/28178202/css-only-tooltip-with-arrow-and-border*/

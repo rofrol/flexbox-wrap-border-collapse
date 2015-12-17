@@ -23,7 +23,7 @@
         </div>
     </div>
 </div>
-<nav class="tooltip_menu_widget tooltip_menu_widget_down hide_menu">
+<nav class="tooltip_menu_widget tooltip_menu_widget_down hidden visuallyhidden">
 	<a class="icon icon_account_ballance">account ballance</a>
 	<a class="icon icon_motorcycle">motorcycle</a>
 	<a class="icon icon_time">time</a>
@@ -38,18 +38,40 @@
 	var button = document.querySelector('.button');
 	button.addEventListener('click', function(){
 		var menu = document.querySelector('.tooltip_menu_widget');
-		if(!menu.classList.contains('show_menu')) {
-			menu.classList.remove('hide_menu');
-			menu.classList.add('show_menu');
+		if(menu.classList.contains('hidden')) {
+			menu.classList.remove('hidden');
 			var menuRect = menu.getBoundingClientRect();
 			var buttonRect = button.getBoundingClientRect();
-			console.log(window.scrollX);
-			console.log(buttonRect.left);
-			menu.style.left = buttonRect.left - (menuRect.width - buttonRect.width) / 2 + 'px';
-			menu.style.top = buttonRect.top - menuRect.height - 9 + 'px';
+			var left = buttonRect.left - (menuRect.width - buttonRect.width) / 2;
+			var top = buttonRect.top - menuRect.height - 9;
+			menu.style.top = top + 9 + 'px';
+			menu.style.left = left + 'px';
+
+			// http://www.impressivewebs.com/animate-display-block-none/
+			setTimeout(function () {
+				menu.style.top = top + 'px';
+				menu.classList.remove('visuallyhidden');
+			}, 200);
+
 		} else {
-			menu.classList.add('hide_menu');
-			menu.classList.remove('show_menu');
+			menu.classList.add('visuallyhidden');
+			onetime(menu, 'transitionend', function() {
+				menu.classList.add('hidden');
+			});
+		}
+
+		// http://www.sitepoint.com/create-one-time-events-javascript/
+		// create a one-time event
+		function onetime(node, type, callback) {
+
+			// create event
+			node.addEventListener(type, function(e) {
+				// remove event
+				e.target.removeEventListener(e.type, arguments.callee);
+				// call handler
+				return callback(e);
+			});
+
 		}
 	});
 </script>
