@@ -13,11 +13,12 @@ http://stackoverflow.com/questions/21233250/how-to-positioning-the-tooltip-above
   background: #08C;
   padding: 5px;
   border: 1px solid rgba(0,0,0,.1);
-  border-radius: 2px;
   color: white;
   font-weight: bold;
   position: relative;
   width: 200px;
   height: 200px;
   cursor: pointer;
+  border-radius: 50%;
+  outline:none;
 }
